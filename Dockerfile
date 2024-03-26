@@ -57,4 +57,4 @@ RUN cd ${HOME}/nn_pv_ws/src/nn_segmentation/ && chmod +x models.py
 RUN cd ${HOME}/nn_pv_ws/src/nn_segmentation/ && chmod +x dataset.py
 RUN cd ${HOME}/nn_pv_ws/src/nn_segmentation/ && chmod +x test.py
 
- 
+WORKDIR ${HOME}/nn_pv_ws/src/nn_segmentation/ 

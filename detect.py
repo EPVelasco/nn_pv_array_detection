@@ -46,11 +46,11 @@ if __name__ == '__main__':
     rospy.Subscriber('/camera/color/image_raw', Image, callback)
     detection_img_pub = rospy.Publisher('/panels_lines_img', Image, queue_size=10)
 
-    # Load segmentation model (yolinov2)
+    # Load segmentation model
     PATH = "/epvelasco/estancia/red_segmentacion/experiments/train_01/"
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-    n_epoch = 99
-    model = UnetPlusPlus("timm-mobilenetv3_small_minimal_100", None, in_channels=3, out_channels=1).to(DEVICE)
+    n_epoch = 149
+    model = PSPNet("timm-mobilenetv3_small_minimal_100", None, in_channels=3, out_channels=1).to(DEVICE)
     #model = UnetPlusPlus("resnet18", "imagenet", in_channels=3, out_channels=1).to(DEVICE)
     load_checkpoint(torch.load(PATH + "epochs/checkpoint_epoch_" + str(n_epoch) + ".pth.tar"), model)
     test_transform = A.Compose(

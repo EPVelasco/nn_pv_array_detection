@@ -126,7 +126,7 @@ def main():
 
 	# model
 	#model = UnetPlusPlus(BACKBONE, None, in_channels=3, out_channels=1).to(DEVICE)
-	model = UnetPlusPlus(BACKBONE, None, in_channels=3, out_channels=1).to(DEVICE)
+	model = PSPNet(BACKBONE, None, in_channels=3, out_channels=1).to(DEVICE)
 	#model = UnetPlusPlus(BACKBONE, "imagenet", in_channels=3, out_channels=1).to(DEVICE)
 	#model = UNET_SMP(BACKBONE, "imagenet", in_channels=3, out_channels=1).to(DEVICE)
 	n_epoch = 149
